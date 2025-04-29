@@ -11,7 +11,7 @@ executable = /usr/bin/hostname
 # change the name of the file to be the name of your source code
 transfer_input_files = /home/zxu444/projects/yang_raven
 should_transfer_files   = YES
-transfer_output_files   = /home/zxu444/projects/yang_raven/
+transfer_output_files   = yang_raven
 
 # requirements = (OpSysMajorVer =?= 8)
 request_cpus = 2

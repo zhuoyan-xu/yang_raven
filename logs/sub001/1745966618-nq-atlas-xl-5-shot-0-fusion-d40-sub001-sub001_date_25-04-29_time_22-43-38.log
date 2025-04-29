@@ -1,0 +1,128 @@
+[04/29/2025 22:43:39] {options.py:500} INFO - 
+            accumulation_steps: 1                                       
+                         alpha: 1.0                                     
+                         beta2: 0.999                                   
+                checkpoint_dir: /staging/zxu444/yang_raven/data/experiments/sub001/	(default: ./checkpoint/)
+                          clip: 1.0                                     
+                   closed_book: False                                   
+  compute_crossattention_stats: False                                   
+                      contexts: ['/staging/zxu444/yang_raven/data/nq_data/train.jsonl']	(default: None)
+                decoder_format: None                                    
+         decoder_prompt_format: None                                    
+                        device: cuda                                    	(default: None)
+           dont_write_passages: False                                   
+                       dropout: 0.1                                     
+                encoder_format: {query} title: {title} context: {text}  
+                       epsilon: 1e-06                                   
+                     eval_data: ['/staging/zxu444/yang_raven/data/nq_data/test.jsonl']	(default: [])
+                     eval_freq: 500                                     
+               faiss_code_size: None                                    
+              faiss_index_type: flat                                    
+  filtering_overretrieve_ratio: 2                                       
+        freeze_retriever_steps: -1                                      
+                        fusion: 0                                       
+     generation_length_penalty: 1.0                                     
+         generation_max_length: 512                                     
+         generation_min_length: 3                                       
+          generation_num_beams: 1                                       
+                   global_rank: 0                                       	(default: None)
+               gold_score_mode: ppmean                                  
+                    index_mode: flat                                    
+                is_distributed: False                                   	(default: None)
+                       is_main: True                                    	(default: None)
+                  is_slurm_job: False                                   	(default: None)
+               load_index_path: None                                    
+load_index_path_data_retrieval: None                                    
+                    local_rank: 0                                       	(default: -1)
+                      log_freq: 100                                     
+                            lr: 0.0001                                  
+                  lr_retriever: 1e-05                                   
+                     main_port: 15725                                   	(default: -1)
+          max_lm_context_ratio: 0.5                                     
+                  max_passages: -1                                      
+          min_lm_context_ratio: 0.5                                     
+     min_words_per_lm_instance: None                                    
+    mlm_mean_noise_span_length: 3                                       
+             mlm_noise_density: 0.15                                    
+      mlm_suffix_noise_density: 0.1                                     
+                         model: atlas                                   	(default: raven)
+                    model_path: /staging/zxu444/yang_raven/data/models/atlas/xl	(default: none)
+                     multi_gpu: False                                   	(default: None)
+                    multi_node: False                                   	(default: None)
+multiple_choice_eval_permutations: single                                  
+   multiple_choice_num_options: 4                                       
+multiple_choice_train_permutations: single                                  
+                     n_context: 40                                      	(default: 1)
+                n_gpu_per_node: 1                                       	(default: None)
+                       n_nodes: 1                                       	(default: None)
+                       n_shots: 5                                       	(default: 0)
+n_to_rerank_with_retrieve_with_rerank: 128                                     
+                          name: 1745966618-nq-atlas-xl-5-shot-0-fusion-d40-sub001-sub001	(default: experiment_name)
+                       node_id: 0                                       	(default: None)
+                      passages: ['/staging/zxu444/yang_raven/data/corpora/wiki/enwiki-dec2021/text-list-100-sec_subsample001.jsonl', '/staging/zxu444/yang_raven/data/corpora/wiki/enwiki-dec2021/infobox_subsample001.jsonl']	(default: None)
+            per_gpu_batch_size: 1                                       
+   per_gpu_embedder_batch_size: 512                                     
+                     precision: bf16                                    	(default: fp32)
+              qa_prompt_format: Question: {question} Answer:<extra_id_0>
+ query_side_retriever_training: False                                   
+             reader_model_type: google/t5-xl-lm-adapt                   	(default: None)
+                 refresh_index: -1                                      
+                 retrieve_only: False                                   
+          retrieve_with_rerank: False                                   
+      retriever_context_format: {question} {answers}                    
+              retriever_format: {title} {text}                          
+          retriever_model_path: facebook/contriever                     
+           retriever_n_context: 40                                      	(default: 5)
+                     save_freq: 5000                                    
+           save_index_n_shards: 128                                     
+               save_index_path: None                                    
+save_index_path_data_retrieval: None                                    
+                save_optimizer: False                                   
+                     scheduler: cosine                                  
+               scheduler_steps: None                                    
+                          seed: 0                                       
+                   shard_grads: False                                   
+                   shard_optim: False                                   
+                       shuffle: False                                   
+              target_maxlength: 512                                     	(default: None)
+                          task: qa                                      	(default: None)
+              temperature_gold: 0.01                                    
+             temperature_score: 0.01                                    
+                text_maxlength: 512                                     	(default: 200)
+                   total_steps: 1000                                    
+                    train_data: ['/staging/zxu444/yang_raven/data/nq_data/train.jsonl']	(default: [])
+               train_retriever: False                                   
+             use_file_contexts: False                                   
+             use_file_passages: False                                   
+use_gradient_checkpoint_reader: False                                   
+use_gradient_checkpoint_retriever: False                                   
+                  warmup_steps: 1000                                    
+                  weight_decay: 0.1                                     
+                    world_size: 1                                       	(default: None)
+                 write_results: True                                    	(default: False)
+
+[04/29/2025 22:43:39] {evaluate_TTT.py:368} INFO - world size: 1
+[04/29/2025 22:43:39] {index_io.py:109} INFO - Loading passages from: ['/staging/zxu444/yang_raven/data/corpora/wiki/enwiki-dec2021/text-list-100-sec_subsample001.jsonl', '/staging/zxu444/yang_raven/data/corpora/wiki/enwiki-dec2021/infobox_subsample001.jsonl']
+[04/29/2025 22:43:44] {model_io.py:135} INFO - Loading /staging/zxu444/yang_raven/data/models/atlas/xl
+[04/29/2025 22:43:44] {model_io.py:136} INFO - loading checkpoint /staging/zxu444/yang_raven/data/models/atlas/xl/model.pth.tar
+Some weights of the model checkpoint at facebook/contriever were not used when initializing Contriever: ['pooler.dense.weight', 'pooler.dense.bias']
+- This IS expected if you are initializing Contriever from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing Contriever from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+[04/29/2025 22:47:00] {model_io.py:201} INFO - Model loaded from /staging/zxu444/yang_raven/data/models/atlas/xl
+[04/29/2025 22:47:00] {evaluate_TTT.py:388} INFO - Start Evaluation
+[04/29/2025 22:47:01] {atlas.py:84} INFO - 200 passages encoded on process: 0
+[04/29/2025 22:47:01] {evaluate_TTT.py:400} INFO - Start Evaluation on /staging/zxu444/yang_raven/data/nq_data/test.jsonl
+Traceback (most recent call last):
+  File "/var/lib/condor/execute/slot1/dir_734111/evaluate_TTT.py", line 402, in <module>
+    metrics = evaluate_TTT(model, index, data_path, index2, optimizer, scheduler, step, opt, checkpoint_path)
+  File "/var/lib/condor/execute/slot1/dir_734111/evaluate_TTT.py", line 62, in evaluate_TTT
+    task = get_task(opt, reader_tokenizer)
+  File "/var/lib/condor/execute/slot1/dir_734111/src/tasks/__init__.py", line 16, in get_task
+    return task_module.Task(opt, tokenizer)
+  File "/var/lib/condor/execute/slot1/dir_734111/src/tasks/qa.py", line 25, in __init__
+    self.train_data = list(self.data_iterator(opt.train_data, opt.global_rank, opt.world_size, opt=opt, is_eval=True))
+  File "/var/lib/condor/execute/slot1/dir_734111/src/tasks/base.py", line 38, in data_iterator
+    for line in _iter():
+  File "/var/lib/condor/execute/slot1/dir_734111/src/tasks/base.py", line 30, in <genexpr>
+    return (line for filename in filenames for line in open(filename, encoding="utf-8"))
+FileNotFoundError: [Errno 2] No such file or directory: '/staging/zxu444/yang_raven/data/nq_data/train.jsonl'
