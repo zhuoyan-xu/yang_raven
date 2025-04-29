@@ -8,9 +8,9 @@ docker_network_type     = host
 # Artefact
 Requirements            = (Target.HasCHTCStaging == true)
 executable              = run_TTT_chtc.sh
-transfer_input_files    = /home/zxu444/projects/yang_raven
+transfer_input_files    = ./evaluate_TTT.py, ./src
 should_transfer_files   = YES
-transfer_output_files   = /home/zxu444/projects/yang_raven
+transfer_output_files   = ./logs
 
 
 # Logging
@@ -22,7 +22,7 @@ log                     = condor_log/log.$(Cluster)-$(Process).txt
 # Compute resources
 request_cpus            = 2
 request_memory          = 80GB
-request_disk            = 100GB
+request_disk            = 400GB
 
 # Extra GPU settings
 request_gpus            = 1

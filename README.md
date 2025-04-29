@@ -49,10 +49,7 @@ nvidia-smi
 bash run_TTT.sh
 ```
 
-
-
 2. submit long jobs in `run_TTT_chtc.sh`.
-setup `<YOUR HF TOKEN>` in .
 ```bash
 condor_submit build_eval.sub
 ```

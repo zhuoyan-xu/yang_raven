@@ -11,14 +11,14 @@ echo "Use wandb: $2"
 echo "GPU Information:"
 nvidia-smi
 
-export HF_TOKEN="<YOUR HF TOKEN>"
+# export HF_TOKEN="<YOUR HF TOKEN>"
 
-export TRANSFORMERS_CACHE=$_CONDOR_SCRATCH_DIR/models
-export HF_DATASETS_CACHE=$_CONDOR_SCRATCH_DIR/datasets
-export TRITON_CACHE_DIR=$_CONDOR_SCRATCH_DIR/.triton
-export HF_HOME=$_CONDOR_SCRATCH_DIR/hf_cache
+# export TRANSFORMERS_CACHE=$_CONDOR_SCRATCH_DIR/models
+# export HF_DATASETS_CACHE=$_CONDOR_SCRATCH_DIR/datasets
+# export TRITON_CACHE_DIR=$_CONDOR_SCRATCH_DIR/.triton
+export HF_HOME=/staging/zxu444/yang_raven/.cache/huggingface
 
-huggingface-cli login --token $HF_TOKEN
+# huggingface-cli login --token $HF_TOKEN
 
 echo "================ start running ================"
 
@@ -60,7 +60,7 @@ mkdir -p ${PRETRAINED_INDEX2}
 mkdir -p ${SHARE_OUTPUT}/logs/sub${SUBSAMPLE}
 
 # Run the command directly instead of using srun
-python ${SHARE_OUTPUT}/yang_raven/evaluate_TTT.py \
+python ${SHARE_OUTPUT}/evaluate_TTT.py \
  --model ${model} \
  --n_shots ${n_shot} \
  --fusion ${fusion} \
@@ -83,6 +83,9 @@ python ${SHARE_OUTPUT}/yang_raven/evaluate_TTT.py \
  --passages ${PASSAGES} \
  --contexts ${CONTEXTS} \
  > ${SHARE_OUTPUT}/logs/sub${SUBSAMPLE}/${EXPERIMENT_NAME}_$DATETIME.log 2>&1
+
+## --checkpoint_dir ${SAVE_DIR} --> is in staging
+## ${SHARE_OUTPUT}/logs --> is transferred out by chtc job
 
 #  --load_index_path ${PRETRAINED_INDEX} \
 #  --load_index_path_data_retrieval ${PRETRAINED_INDEX2} \
