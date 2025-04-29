@@ -11,8 +11,8 @@ import logging
 from src import dist_utils
 from src.index import DistributedFAISSIndex, DistributedIndex
 
-import GPUtil
-from tabulate import tabulate
+# import GPUtil
+# from tabulate import tabulate
 
 # def check_gpu(): 
 #     gpus = GPUtil.getGPUs()

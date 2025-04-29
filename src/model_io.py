@@ -138,7 +138,7 @@ def load_atlas_model(dir_path, opt, reset_params=False, eval_only=False):
     
     reader, reader_tokenizer = load_reader(opt)
     
-    checkpoint = torch.load(save_path, map_location="cpu", weights_only=False)
+    checkpoint = torch.load(save_path, map_location="cpu")
     opt_checkpoint = checkpoint["opt"]
     step = checkpoint["step"]
     model_dict = checkpoint["model"]

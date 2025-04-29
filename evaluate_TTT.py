@@ -8,13 +8,13 @@ import os
 import time
 from collections import defaultdict
 
-import GPUtil
-from tabulate import tabulate
+# import GPUtil
+# from tabulate import tabulate
 
-def check_gpu(): 
-    gpus = GPUtil.getGPUs()
-    gpu_list = [[gpu.id, gpu.name, f"{gpu.memoryUsed}MB / {gpu.memoryTotal}MB", f"{gpu.load * 100:.1f}%"] for gpu in gpus]
-    print(tabulate(gpu_list, headers=["ID", "GPU", "Memory Usage", "GPU Load"]))
+# def check_gpu(): 
+#     gpus = GPUtil.getGPUs()
+#     gpu_list = [[gpu.id, gpu.name, f"{gpu.memoryUsed}MB / {gpu.memoryTotal}MB", f"{gpu.load * 100:.1f}%"] for gpu in gpus]
+#     print(tabulate(gpu_list, headers=["ID", "GPU", "Memory Usage", "GPU Load"]))
 
 
 import numpy as np
