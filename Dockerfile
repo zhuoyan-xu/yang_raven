@@ -1,8 +1,17 @@
-FROM conda/miniconda3
+FROM pytorch/pytorch:1.11.0-cuda11.3-cudnn8-devel
 
-RUN conda env create -f environment.yml
+RUN conda install -y -c pytorch faiss-gpu=1.7.2 cudatoolkit=11.3
 
-SHELL ["conda", "run", "-n", "RAVEN", "/bin/bash", "-c"]
+RUN pip install fairscale==0.4.13
 
-CMD ["bash"]
+RUN pip install transformers==4.18.0
 
+RUN pip install rouge==1.0.1
+
+RUN pip install tensorboard
+
+RUN pip install wget
+
+RUN pip install sentencepiece
+
+# docker run --gpus all --user $(id -u):$(id -g) --rm=true -it -v $(pwd):/scratch -w /scratch zhuoyanxu/raven:v1.0 /bin/bash

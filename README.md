@@ -18,7 +18,26 @@ The codebase uses the following dependencies:
 ***Recommend***: you can use the `Dockerfile` to build a docker image that meets all the above requirements
 
 
+### Docker
+#### create docker
+```bash
+docker build -t zhuoyanxu/raven:v1.0 .
+```
 
+#### test locally
+```bash
+bash docker_run.sh
+```
+inside container running, run `bash run_TTT.sh`.
+
+#### push to dockerhub
+```bash
+docker push zhuoyanxu/raven:v1.0
+```
+
+
+
+--------------------------------------
 ## Training RAVEN
 
 **Download corpora**
