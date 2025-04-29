@@ -1,0 +1,39 @@
+JobBatchName            = "raven"
+
+
+universe                = container
+container_image         = docker://zhuoyanxu/raven:v1.0
+docker_network_type     = host
+
+# Artefact
+Requirements            = (Target.HasCHTCStaging == true)
+executable              = run_TTT_chtc.sh
+transfer_input_files    = /home/zxu444/projects/yang_raven
+should_transfer_files   = YES
+transfer_output_files   = /home/zxu444/projects/yang_raven
+
+
+# Logging
+stream_output           = true
+output                  = condor_log/output.$(Cluster)-$(Process).txt
+error                   = condor_log/error.$(Cluster)-$(Process).txt
+log                     = condor_log/log.$(Cluster)-$(Process).txt
+
+# Compute resources
+request_cpus            = 2
+request_memory          = 80GB
+request_disk            = 100GB
+
+# Extra GPU settings
+request_gpus            = 1
+gpus_minimum_capability = 7.9
+# gpus_maximum_capability = 8.1
+Requirements            = (Target.CUDADriverVersion >= 10.1)
++WantGPULab             = true
+# change to true if *not* using staging for checkpoints and interested in accessing GPUs beyond CHTC
++WantFlocking           = false
++WantGlidein            = false
++GPUJobLength           = "short"
+
+# Runs
+queue 1

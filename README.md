@@ -35,6 +35,27 @@ inside container running, run `bash run_TTT.sh`.
 docker push zhuoyanxu/raven:v1.0
 ```
 
+## CHTC
+Setup dir in `/staging` in `run_TTT.sh`.
+1. debug in interactive job
+```bash
+cd gpu
+condor_submit -i build.sub
+```
+
+inside job, run
+```
+nvidia-smi
+bash run_TTT.sh
+```
+
+
+
+2. submit long jobs in `run_TTT_chtc.sh`.
+setup `<YOUR HF TOKEN>` in .
+```bash
+condor_submit build_eval.sub
+```
 
 
 --------------------------------------

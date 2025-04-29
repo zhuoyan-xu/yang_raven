@@ -1,0 +1,32 @@
+# Software build file
+
+universe = docker
+docker_image = zhuoyanxu/raven:v1.0
+log = interactive.log
+
+# In the latest version of HTCondor on CHTC, interactive jobs require an executable.
+# If you do not have an existing executable, use a generic linux command like hostname as shown below.
+executable = /usr/bin/hostname
+
+# change the name of the file to be the name of your source code
+transfer_input_files = /home/zxu444/projects/yang_raven
+should_transfer_files   = YES
+transfer_output_files   = /home/zxu444/projects/yang_raven/
+
+# requirements = (OpSysMajorVer =?= 8)
+request_cpus = 2
+request_memory = 80GB
+request_disk = 100GB
+
+
+# Extra GPU settings
+request_gpus            = 1
+gpus_minimum_capability = 7.9
+Requirements            = (Target.CUDADriverVersion >= 10.1)
++WantGPULab             = true
+# change to true if *not* using staging for checkpoints and interested in accessing GPUs beyond CHTC
++WantFlocking           = false
++WantGlidein            = false
++GPUJobLength           = "short"
+
+queue

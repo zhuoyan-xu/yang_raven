@@ -1,0 +1,22 @@
+000 (1851126.000.000) 2025-04-29 00:43:39 Job submitted from host: <128.105.68.112:9618?addrs=128.105.68.112-9618+[2607-f388-2200-100-eaeb-d3ff-fea3-4202]-9618&alias=ap2001.chtc.wisc.edu&noUDP&sock=schedd_1987781_0208>
+...
+040 (1851126.000.000) 2025-04-29 00:49:18 Started transferring input files
+	Transferring to host: <128.105.68.5:9618?addrs=128.105.68.5-9618+[2607-f388-2200-100-eaeb-d3ff-fe53-f4a0]-9618&alias=gpulab2005.chtc.wisc.edu&noUDP&sock=slot1_2_2999445_184d_49972>
+...
+040 (1851126.000.000) 2025-04-29 00:49:18 Finished transferring input files
+...
+001 (1851126.000.000) 2025-04-29 00:49:19 Job executing on host: <128.105.68.5:9618?addrs=128.105.68.5-9618+[2607-f388-2200-100-eaeb-d3ff-fe53-f4a0]-9618&alias=gpulab2005.chtc.wisc.edu&noUDP&sock=startd_10772_4645>
+	SlotName: slot1_2@gpulab2005.chtc.wisc.edu
+	AvailableGPUs = { GPUs_GPU_6f108d43 }
+	CondorScratchDir = "/var/lib/condor/execute/slot1/dir_895176"
+	Cpus = 2
+	Disk = 104858838
+	GPUs = 1
+	GPUs_GPU_6f108d43 = [ Id = "GPU-6f108d43"; Capability = 8.0; DeviceName = "NVIDIA A100-SXM4-40GB"; DeviceUuid = "6f108d43-2e14-4d98-9441-cfa5ab82fe31"; ECCEnabled = true; NvidiaDriver = "550.90.07"; DriverVersion = 12.4; DevicePciBusId = "0000:41:00.0"; GlobalMemoryMb = 40326; MaxSupportedVersion = 12040 ]
+	IoHeavy = 0
+	Memory = 81920
+...
+006 (1851126.000.000) 2025-04-29 00:49:27 Image size of job updated: 2173
+	2173  -  MemoryUsage of job (MB)
+	2226084  -  ResidentSetSize of job (KB)
+...

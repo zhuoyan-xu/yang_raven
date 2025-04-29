@@ -1,5 +1,27 @@
 #!/bin/bash
 
+
+echo "Running job on `hostname`"
+echo "GPUs assigned: $CUDA_VISIBLE_DEVICES"
+echo "Run name: $1"
+echo "Use wandb: $2"
+
+
+# Print GPU information
+echo "GPU Information:"
+nvidia-smi
+
+export HF_TOKEN="<YOUR HF TOKEN>"
+
+export TRANSFORMERS_CACHE=$_CONDOR_SCRATCH_DIR/models
+export HF_DATASETS_CACHE=$_CONDOR_SCRATCH_DIR/datasets
+export TRITON_CACHE_DIR=$_CONDOR_SCRATCH_DIR/.triton
+export HF_HOME=$_CONDOR_SCRATCH_DIR/hf_cache
+
+huggingface-cli login --token $HF_TOKEN
+
+echo "================ start running ================"
+
 # Set variables (keeping the same values from your SLURM script)
 DATETIME=`date +'date_%y-%m-%d_time_%H-%M-%S'`
 export SHARE_OUTPUT=$(pwd)
@@ -38,7 +60,7 @@ mkdir -p ${PRETRAINED_INDEX2}
 mkdir -p ${SHARE_OUTPUT}/logs/sub${SUBSAMPLE}
 
 # Run the command directly instead of using srun
-python ${SHARE_OUTPUT}/evaluate_TTT.py \
+python ${SHARE_OUTPUT}/yang_raven/evaluate_TTT.py \
  --model ${model} \
  --n_shots ${n_shot} \
  --fusion ${fusion} \
